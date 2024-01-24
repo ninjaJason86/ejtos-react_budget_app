@@ -11,33 +11,30 @@ import Budget from './components/Budget';
 import { AppProvider } from './context/AppContext';
 const App = () => {
     return (
+        // @ts-ignore
         <AppProvider>
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
-                    <div className='row mt-3'>
-                        {
-                            /* Add Budget component here */
-                        }        
+                <div className='row mt-3'>
+                    {/* Add Budget component here */}
+                    <div className='col-sm'>
+                        <Budget />
+                    </div>
 
-                        {
-                            /* Add Remaining component here*/
-                        }        
+                    {/* Add Remaining component here*/}
+                    <div className='col-sm'>
 
-                        {
-                            /* Add ExpenseTotal component here */
-                        }        
-                       
-                        {
-                            /* Add ExpenseList component here */
-                        }         
+                    </div>
+                    {/* Add ExpenseTotal component here */}
+                    <div className='col-sm'>
 
-                        {
-                            /* Add ExpenseItem component here */
-                        }        
+                    </div>
 
-                        {
-                            /* Add AllocationForm component here under */
-                        }        
+                    {/* Add ExpenseList component here */}
+
+                    {/* Add ExpenseItem component here */}
+
+                    {/* Add AllocationForm component here under */}
 
                 </div>
             </div>
