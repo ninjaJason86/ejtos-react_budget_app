@@ -86,7 +86,8 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: '£'
+    currency: '£',
+    totalExpenses: 960,
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
@@ -104,7 +105,11 @@ export const AppProvider = (props) => {
             return (total += item.cost);
         }, 0);
         remaining = state.budget - totalExpenses;
+
     }
+    const totalExpenses = state.expenses.reduce((total, item) => {
+        return (total += item.cost);
+    }, 0);
 
     return (
         // @ts-ignore
@@ -114,7 +119,8 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
+                totalExpenses,
             }}
         >
             {props.children}
