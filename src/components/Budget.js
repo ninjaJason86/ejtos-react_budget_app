@@ -11,7 +11,7 @@ export default function Budget() {
     }
 
     return (
-        <div className="alert alert-secondary d-flex justify-content-between">
+        <div className="alert alert-secondary">
             <span>Budget: ￡</span>
             <input type="number" step={10} value={newBudget} onChange={handleBudgetChange}></input>
         </div>
