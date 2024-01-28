@@ -59,12 +59,14 @@ export default function AllocationForm(props) {
                         <option value="Reduce">Reduce</option>
                     </select>
 
+                    <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
+                        <label className="input-group-text" htmlFor="cost">￡</label>
+                    </div>
                     <input
                         required
                         type='number'
                         id='cost'
                         value={cost}
-                        style={{ marginLeft: '2rem' }}
                         onChange={(event) => setCost(event.target.value)}>
                     </input>
 
