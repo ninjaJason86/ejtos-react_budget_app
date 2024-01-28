@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { TiDelete } from "react-icons/ti";
-import { RiAddCircleFill } from "react-icons/ri";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 
 
 
-export default function ExpenseItem(props) {
+export default function ExpenseItem(item, index) {
     const { currency, dispatch } = useContext(AppContext);
 
 
@@ -33,27 +32,27 @@ export default function ExpenseItem(props) {
     }
 
     return (
-        <tr>
-            <td>{props.name}</td>
-            <td>{currency}{props.cost}</td>
+        <tr key={index}>
+            <td>{item.name}</td>
+            <td>{currency}{item.cost}</td>
             <td>
                 <FaPlusCircle
                     size={"40px"}
                     color="green"
-                    onClick={() => handleIncreaseAllocationBy10(props)}
+                    onClick={() => handleIncreaseAllocationBy10(item)}
                 />
             </td>
             <td>
                 <FaMinusCircle
                     size={"40px"}
                     color="darkred"
-                    onClick={() => handleDecreaseAllocationBy10(props)}
+                    onClick={() => handleDecreaseAllocationBy10(item)}
                 />
             </td>
             <td>
                 <TiDelete
                     size="1.5em"
-                    onClick={() => handleDeleteExpense(props)}
+                    onClick={() => handleDeleteExpense(item)}
                 />
             </td>
         </tr>
