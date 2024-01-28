@@ -5,11 +5,11 @@ import { AppContext } from "../context/AppContext";
 const UPPER_LIMIT = 20000;
 
 export default function Budget() {
-    const { budget, totalExpenses, dispatch } = useContext(AppContext);
+    const { budget, currency, totalExpenses, dispatch } = useContext(AppContext);
 
     function handleBudgetChange(event) {
         if (event.target.value > UPPER_LIMIT) {
-            alert(`The budget cannot exceed £ ${UPPER_LIMIT}`);
+            alert(`The budget cannot exceed ${currency}${UPPER_LIMIT}`);
             return;
         }
 
@@ -26,7 +26,7 @@ export default function Budget() {
 
     return (
         <div className="alert alert-secondary">
-            <span>Budget: ￡</span>
+            <span>Budget: {currency}</span>
             <input type="number" step={10} value={budget} onChange={handleBudgetChange}></input>
         </div>
     )

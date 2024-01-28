@@ -3,13 +3,13 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
 export default function Remaining() {
-    const { budget, totalExpenses } = useContext(AppContext);
+    const { budget, currency, totalExpenses } = useContext(AppContext);
 
     const alertType = totalExpenses > budget ? "alert-danger" : "alert-success";
 
     return (
         <div className={`alert ${alertType}`}>
-            <span>Remaining: ￡{budget - totalExpenses}</span>
+            <span>Remaining: {currency}{budget - totalExpenses}</span>
         </div>
     )
 }

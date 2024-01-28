@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 import { TiDelete } from "react-icons/ti";
 
 export default function ExpenseList() {
-    const { expenses, dispatch } = useContext(AppContext);
+    const { expenses, currency, dispatch } = useContext(AppContext);
 
 
 
@@ -36,7 +36,7 @@ export default function ExpenseList() {
                 {expenses.map((item) => (
                     <tr>
                         <td>{item.name}</td>
-                        <td>￡{item.cost}</td>
+                        <td>{currency}{item.cost}</td>
                         <td><button onClick={() => handleIncreaseAllocationBy10(item)}>+</button></td>
                         <td><TiDelete size="1.5em" onClick={() => handleDeleteExpense(item)}></TiDelete></td>
                     </tr>
