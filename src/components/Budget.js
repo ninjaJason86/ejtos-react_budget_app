@@ -3,17 +3,19 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
 export default function Budget() {
-    const { budget } = useContext(AppContext);
-    const [newBudget, setNewBudget] = useState(budget);
+    const { budget, dispatch } = useContext(AppContext);
 
     function handleBudgetChange(event) {
-        setNewBudget(parseInt(event.target.value));
+        dispatch({
+            type: "SET_BUDGET",
+            payload: event.target.value,
+        })
     }
 
     return (
         <div className="alert alert-secondary">
             <span>Budget: ￡</span>
-            <input type="number" step={10} value={newBudget} onChange={handleBudgetChange}></input>
+            <input type="number" step={10} value={budget} onChange={handleBudgetChange}></input>
         </div>
     )
 }
